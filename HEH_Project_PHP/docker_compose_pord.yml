@@ -1,0 +1,11 @@
+version: "3.7"
+
+service:
+    web:
+        build: web
+        volume:
+            -/web/src:/user/local/apache2/htdocs
+        ports:
+            -80:80
+            -443:443
+        
