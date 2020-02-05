@@ -3,9 +3,9 @@ version: "3.7"
 services:
     web:
         container_name: "web"
-        build: ./web/Dockerfile
+        build: ./Web
         volumes:
-            - /web/src:/user/local/apache2/htdocs
+            - ./Web/src:/var/www/html
         ports:
             - 80:80
             - 443:443
