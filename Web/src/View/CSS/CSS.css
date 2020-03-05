@@ -1,13 +1,9 @@
 html, body
 {
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;
+    /*font-family: 'Courier New', Courier, monospace;*/
     color: #AAA;
     background-color: #333;
-}
-h1, h2, h3, h4, h5, h6
-{
-    font-family: 'Times New Roman', Times, serif;
 }
 a:link{ color: #f44; }
 a:hover, a:focus{ color: #f11; }
@@ -15,43 +11,16 @@ a:hover, a:focus{ color: #f11; }
 img, video, iframe {}*/
 
 /* navigation */
-#navtop nav
-{
-    position: fixed; top: 0; left: 0; right: 0;z-index:99;
-    background-color: black;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
 
-}
-#navtop a
-{
-    color: red;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    display: inline-block;
-    padding: 1em;
-    text-decoration: none;
-    font-size: 20px;
-}
-#navtop a:hover, #navtop a:focus
-{
-    text-decoration: none;
-    color: #922;
-    border-color: #922;
-    border-width: 2px;
-    border-style: outset;
-    border-radius: 10px;
-    
-}
 @media screen and (max-width:800px) 
 {
-	#navtop nav { position:static; flex-flow:column nowrap; }
+	.navbar { position:static; }
 }
 
 /*tete*/
 #tete
 {
-    margin-top: 62px;
+    margin-top: 56px;
     position: relative;
     background-image: url(../../image/fontTitre.png);
     max-width: 100%;
