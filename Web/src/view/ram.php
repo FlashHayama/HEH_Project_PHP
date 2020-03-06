@@ -1,6 +1,5 @@
 <?php
-  include 'heater.html';
-
+  include 'heater.php';
   include_once 'form_modal.php';
 ?>
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
@@ -16,14 +15,14 @@
       <li class="nav-item">
         <a class="nav-link" href="carte_graphique.php">Carte graphique</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="processeur.php">Processeur</a>
+      </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Processeur</a>
+        <a class="nav-link" href="#">RAM</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="RAM.php">RAM</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="ROM.php">Disque dur</a>
+        <a class="nav-link" href="rom.php">Disque dur</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -39,27 +38,19 @@
   <section id=tete>
     <div>
       <h1>Monter son PC</h1>
-      <p>Processeur</p>
+      <p>RAM</p>
     </div>
   </section>
   <section id=corp>
     <h3>Explication</h3>
     <figure>
-      <img src="../image/processeur.png" alt="Processeur">
+      <img src="../image/RAM.png" alt="RAM">
     </figure>
     <p>
-      C’est lui qui effectue les calculs et exécute les instructions.
-    </p>
-    <p>
-      Un processeur est composé de millier de transistor, des petits puces électroniques qui fonctionnent un peu comme des interrupteurs et qui ont donc 2 états, allumer ou éteint, 1 ou 0, ce qui va permettre celons les opérations demander de laisser passer le courant ou pas.
-    </p>
-    <p>
-      Les processeurs ont un certain rythme et sont cadencer par une horloge, plus elle tourne vite et plus le CPU pourra traiter des informations, à chaque impulsion les transistors vont prendre un 1 ou un 0, ce qui va permettre de faire des calculs.
-      On exprime ce cadencement en GHz.
-    </p>
-    <p>
-      (Giga Hertz, Hertz étant une unité de fréquence). On peut parler d’un processeur à 4GHz. Soit 4.000.000.000 cycles d’opérations à la seconde !!
-      Les processeurs on différente caractéristique les uns avec les autres donc 2 processeurs cadencés à 4GHz n’auront pas forcément la même puissance, car la vitesse ne suffit pas et pour aller plus vite certain CPU on plusieurs cœur et de la mémoire cache intégrer.
+      La RAM est une mémoire volatile servant de stockage temporaire pour le traitement de données, l’avantage de cette mémoire est que le traitement d’information très rapide autant en lecture qu’en écriture. 
+      L’inconvénient est que cette mémoire s’efface dès que l’ordinateur est éteint. De plus, cette RAM ayant un certain coût, si l’on voulait y stocker l’ensemble des informations, cela coûterait très cher. 
+      Etant donné que l’on ne peut pas tout stocker dans la RAM (cout et perte de données) il a fallu mettre en parallèle un autre système de stockage en masse et permanent, ce qui se faisait au début de l’informatique avec des carte perforé et maintenant avec les disques durs.
+
     </p>
   </section>  
   <?php

@@ -1,6 +1,5 @@
 <?php
-  include 'heater.html';
-
+  include 'heater.php';
   include_once 'form_modal.php';
 ?>
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
@@ -14,16 +13,16 @@
         <a class="nav-link" href="../index.php#nav">Carte mère<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Carte_graphique.php">Carte graphique</a>
+        <a class="nav-link" href="carte_graphique.php">Carte graphique</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Processeur.php">Processeur</a>
+        <a class="nav-link" href="processeur.php">Processeur</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="RAM.php">RAM</a>
+        <a class="nav-link" href="ram.php">RAM</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="ROM.php">Disque dur</a>
+        <a class="nav-link" href="rom.php">Disque dur</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

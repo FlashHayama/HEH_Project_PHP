@@ -3,7 +3,7 @@
   <head>
     <title>Fonctionnement d'un ordinateur</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="view/CSS/CSS.css">
+    <link rel="stylesheet" href="view/css/css.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -31,16 +31,16 @@
             <a class="nav-link" href="#nav">Carte mère<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="view/Carte_graphique.php">Carte graphique</a>
+            <a class="nav-link" href="view/carte_graphique.php">Carte graphique</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="view/Processeur.php">Processeur</a>
+            <a class="nav-link" href="view/processeur.php">Processeur</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="view/RAM.php">RAM</a>
+            <a class="nav-link" href="view/ram.php">RAM</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="view/ROM.php">Disque dur</a>
+            <a class="nav-link" href="view/rom.php">Disque dur</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -83,11 +83,11 @@
         <figure>
           <img src="image/Carte_mere.jpg" alt="Carte_mere" usemap="#carte">
           <map name="carte">
-            <area shape="rect" coords="179,678,591,730" href="view/Carte_graphique.php" alt="" title="Carte graphique">
-            <area shape="rect" coords="178,918,589,970" href="view/Carte_graphique.php" alt="" title="Carte graphique">
-            <area shape="rect" coords="424,253,589,454" href="view/Processeur.php" alt="" title="Processeur">
-            <area shape="rect" coords="695,44,840,613" href="view/RAM.php" alt="" title="RAM">
-            <area shape="rect" coords="882,801,952,941" href="view/ROM.php" alt="" title="Disque dur">
+            <area shape="rect" coords="179,678,591,730" href="view/carte_graphique.php" alt="" title="Carte graphique">
+            <area shape="rect" coords="178,918,589,970" href="view/carte_graphique.php" alt="" title="Carte graphique">
+            <area shape="rect" coords="424,253,589,454" href="view/processeur.php" alt="" title="Processeur">
+            <area shape="rect" coords="695,44,840,613" href="view/ram.php" alt="" title="RAM">
+            <area shape="rect" coords="882,801,952,941" href="view/rom.php" alt="" title="Disque dur">
           </map>
         </figure>
       </nav> 
@@ -97,7 +97,7 @@
       <p>Nom : Marchand Valentin</p>
       <p>telephone : 0495 92 46 20</p>
       <a href="mailto:marchandvalentin.7@outlook.fr">marchandvalentin.7@outlook.fr</a>
-      <a href="View/Contact.php">Information</a>
+      <a href="view/contact.php">Information</a>
     </div>
     <div>
       <h4>Liens utile :</h4>
