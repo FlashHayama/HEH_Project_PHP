@@ -14,6 +14,7 @@ services:
             - 443
 
     maria:
+        container_name: "maria"
         build: dataBase
         volumes:
             - dataBase:/var/lib/mysql
