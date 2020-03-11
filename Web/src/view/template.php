@@ -26,7 +26,9 @@
 <section id=corp>
     <?php
         if ($_GET['value'] == 'mother' || $_GET['value'] == 'home')
+        {
             mother();
+        }
         else if ($ifExists)
         {
             component();
