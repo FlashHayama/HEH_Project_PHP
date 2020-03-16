@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item <?php if($_GET['value'] == 'mother' || $_GET['value'] == 'home') echo 'active';?>">
-        <a class="nav-link" href="template.php?value=mother">Carte mère<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="template.php?value=mother#nav">Carte mère<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item <?php if($_GET['value'] == 'gpu') echo 'active';?>">
         <a class="nav-link" href="template.php?value=gpu">Carte graphique</a>

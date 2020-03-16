@@ -3,10 +3,10 @@
 
     try
     {
-    $PDO = new PDO($DB_DSN,$DB_USER,$DB_PASS);
-    echo "Connection bien établie";
+        $PDO = new PDO($DB_DSN,$DB_USER,$DB_PASS);
+        echo "Connection bien établie";
     }
     catch (PDOException $e)
     {
-    echo $e;
+        echo $e;
     }

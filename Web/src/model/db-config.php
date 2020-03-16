@@ -1,5 +1,5 @@
 <?php
 
-    $DB_DSN = 'mysql:host=maria;dbname=maria';
+    $DB_DSN = 'mysql:host=' . $_ENV['HOST'] . ';dbname='. $_ENV['HOSTNAME'];
     $DB_USER = 'root';
-    $DB_PASS = '3111997';
+    $DB_PASS = $_ENV['PASSWORD'];
