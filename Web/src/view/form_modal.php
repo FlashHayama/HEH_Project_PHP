@@ -8,15 +8,15 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form method="post" action="../controller/verif_logIn.php?value=<?=$_GET["value"];?>">
             <div class="form-group">
               <label for="exampleInputEmail1">adresse Email </label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="mail">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Mot de passe</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password">
             </div>
             <div class="form-group form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -24,7 +24,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
-        </div>        
+        </div>
       </div>
     </div>
   </div>

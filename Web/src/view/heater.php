@@ -1,4 +1,10 @@
-
+<?php 
+$start = !session_start();
+if($start)
+{
+  echo "La session n'a pas pu démarrer" . " " . $start;
+} 
+?>
 <!doctype html>
 <html lang="fr">
   <head>

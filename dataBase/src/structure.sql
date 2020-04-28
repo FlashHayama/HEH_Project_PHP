@@ -1,3 +1,5 @@
+drop database maria;
+
 CREATE DATABASE if not exists maria;
 
 USE maria;
@@ -28,9 +30,9 @@ CREATE TABLE if not exists User
     id int auto_increment,
     name char(15) not null ,
     firstName char(15) not null ,
-    age date not null ,
-    mail char(50) not null ,
-    password char(100) not null ,
+    age char(10) not null ,
+    mail char(100) not null ,
+    password char(255) not null ,
 
     PRIMARY KEY (id)
 );
@@ -43,5 +45,5 @@ CREATE TABLE if not exists Choose
 
     PRIMARY KEY (id),
     FOREIGN KEY (id_user) REFERENCES User(id),
-    FOREIGN KEY (id_composant) REFERENCES Composant(reference)
+    FOREIGN KEY (id_composant) REFERENCES Composant(reference) on delete cascade
 );

@@ -39,7 +39,7 @@
             <?php
                 switch ($_GET['value'])
                 {
-                    case 'gpu': ?>
+                           case 'gpu': ?>
                         <p>Une carte graphique ou encore une carte vidéo est une carte d’extension de l’ordinateur qui permet de produire une image affichable par le moniteur(écran).</p>
                         <p>Même si les première carte graphique ne permettait que d’afficher des image 2D et monochrome,
                                         Avec l’évolution des techniques pour augmenter la vitesse de transfert entre le processeur et la carte graphique, des nouvelles cartes sont créées permettant d’afficher des images 3D et leurs puissances de calcul continue d’augmenter avec un cout finalement très réduit.</p>

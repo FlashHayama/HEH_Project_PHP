@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
   <a class="navbar-brand" href="template.php?value=home">Accueil</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,8 +25,22 @@
       </li>
     </ul>
     <div class="btn-group form-inline my-2 my-lg-0" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">S'identifier</button>
-      <button type="button" class="btn btn-secondary">S'inscrire</button>
+      <?php
+        extract($_GET);
+        if(isset($_SESSION['name']) && isset($_SESSION['firstName']))
+        {
+          echo '<div id="nav-hello">';
+          echo '<p style="margin-bottom: 0">Bonjour</p>';
+          echo '<p style="margin-bottom: 0">'. $_SESSION["name"] ." ". $_SESSION["firstName"]."</p>";
+          echo '</div>';
+          echo "<a href=\"../controller/logOut.php?value=$value\"><button type=\"button\" class=\"btn btn-secondary\">Se déconnecter</button></a>";
+        }
+        else
+        {
+          echo "<button type=\"button\" class=\"btn btn-secondary\" data-toggle=\"modal\" data-target=\"#exampleModal\">S'identifier</button>";
+          echo "<a href=\"form_inscription.php?value=$value\"><button type=\"button\" class=\"btn btn-secondary\">S'inscrire</button></a>";
+        }
+      ?>
     </div>
   </div>
 </nav>

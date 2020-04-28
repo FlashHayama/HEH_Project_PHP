@@ -1,12 +1,11 @@
 <?php
-    require_once 'db-config.php';
-
+    require 'db-config.php';
     try
     {
-        $PDO = new PDO($DB_DSN,$DB_USER,$DB_PASS);
-        echo "Connection bien établie";
+        $PDO = new PDO($DB_DSN,$DB_USER,$DB_PASS,$options);      
     }
     catch (PDOException $e)
     {
-        echo $e;
+        echo "Probleme lors de la connection a la base de données.";
     }
+?>
