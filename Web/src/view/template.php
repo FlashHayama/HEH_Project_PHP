@@ -7,16 +7,20 @@
 <?php if(true){?>
     <section id=tete>
         <div>
-            <h1>Monter son PC</h1>
+            <h1>Tester son PC</h1>
             <p><?php
+                $ty = 0;
                 switch ($_GET['value'])
                 {
-                    case 'home': echo 'Accueil'; $ifExists = true; break;
-                    case 'mother': echo 'Accueil'; $ifExists = true; break;
-                    case 'gpu': echo 'Carte graphique'; $ifExists = true; break;
-                    case 'cpu': echo 'Processeur'; $ifExists = true; break;
-                    case 'ram': echo 'RAM'; $ifExists = true; break;
-                    case 'rom': echo 'Disque dur'; $ifExists = true; break;
+                    case 'home': echo 'Accueil'; $ifExists = true; $ty = 1; break;
+                    case 'mother': echo 'Accueil'; $ifExists = true; $ty = 1; break;
+                    case 'gpu': echo 'Carte graphique'; $ifExists = true; $ty = 2; break;
+                    case 'cpu': echo 'Processeur'; $ifExists = true; $ty = 3; break;
+                    case 'ram': echo 'RAM'; $ifExists = true; $ty = 4; break;
+                    case 'rom': echo 'Disque dur'; $ifExists = true; $ty = 5; break;
+                    case 'alim': echo 'Alimentation'; $ifExists = true; $ty = 6; break;
+                    case 'add': echo 'Ajout de composant'; break;
+                    case 'col': echo 'Collection'; break;
                     default: echo 'Page inexistante'; $ifExists = false;
                 }
             ?></p>
@@ -29,6 +33,14 @@
         {
             mother();
         }
+        else if ($_SESSION['admin'] && $_GET['value'] == 'add')
+        {
+            include_once 'add_form.php';
+        }
+        else if ($_GET['value'] == 'col')
+        {
+            include_once 'collection.php';
+        }
         else if ($ifExists)
         {
             component();
@@ -37,13 +49,10 @@
         {
             echo '<h1>Erreur : La page n\'existe pas</h1>';
         }
-        if($_GET['value'] == 'mother')
-        {
-            
-        }
     ?>
 </section>
 <?php
     if($ifExists)
-        include_once 'footer.html';
+        affiche_composant($ty);
+    include_once 'footer.html';
 ?>

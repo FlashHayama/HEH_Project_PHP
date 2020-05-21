@@ -3,7 +3,7 @@
     extract($_GET);
 ?>
 
-<form id="corp" method="post" action="../controller/verif_inscription.php?value=<?= $value?>">
+<form id="corp" method="post" action="../controller/verif_inscription.php">
     <div class="form-row">
         <div class="form-group col-md-6 mb-3">
             <label for="inputEmail4">Prenom</label>
@@ -50,14 +50,6 @@
             <div class="invalid-tooltip">
                 Utiliser le format JJ/MM/AAAA
             </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck" name="remenber">
-        <label class="form-check-label" for="gridCheck">
-            Se souvenir de moi
-        </label>
         </div>
     </div>
     <button type="submit" class="btn btn-primary" name="formSend">Sign in</button>

@@ -19,9 +19,11 @@
                 //echo "password check";
                 $_SESSION["name"] = $result["name"];
                 $_SESSION["firstName"] = $result["firstName"];
+                $_SESSION["id"] = $result["id"];
+                $_SESSION['admin'] = $result["admin"];
                 header("Location: ../view/template.php?value=$value");
             }
         }
 	}	
-	header("Location: ../view/template.php?value=$value");
+	header("Location: ../view/template.php?value=$value#nav");
 ?>

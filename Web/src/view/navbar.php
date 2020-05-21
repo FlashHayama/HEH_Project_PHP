@@ -20,8 +20,11 @@
       <li class="nav-item <?php if($_GET['value'] == 'rom') echo 'active';?>">
         <a class="nav-link" href="template.php?value=rom">Disque dur</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="template.php?value=mother" tabindex="-1" aria-disabled="true">Disabled</a>
+      <li class="nav-item <?php if($_GET['value'] == 'alim') echo 'active';?>">
+        <a class="nav-link" href="template.php?value=alim">Alimentation</a>
+      </li>
+      <li class="nav-item <?php if($_GET['value'] == 'add') echo 'active';?>">
+        <a class="nav-link <?php if($_SESSION['admin']) echo 'enable'; else echo 'disabled';?>" href="template.php?value=add" tabindex="-1" aria-disabled="true">Administrateur</a>
       </li>
     </ul>
     <div class="btn-group form-inline my-2 my-lg-0" role="group" aria-label="Basic example">
@@ -29,16 +32,17 @@
         extract($_GET);
         if(isset($_SESSION['name']) && isset($_SESSION['firstName']))
         {
-          echo '<div id="nav-hello">';
+          echo '<div style="margin-right: 10px;">';
           echo '<p style="margin-bottom: 0">Bonjour</p>';
           echo '<p style="margin-bottom: 0">'. $_SESSION["name"] ." ". $_SESSION["firstName"]."</p>";
           echo '</div>';
           echo "<a href=\"../controller/logOut.php?value=$value\"><button type=\"button\" class=\"btn btn-secondary\">Se déconnecter</button></a>";
+          echo "<a href=\"template.php?value=col\"><button type=\"button\" class=\"btn btn-secondary\">Collection</button></a>";
         }
         else
         {
           echo "<button type=\"button\" class=\"btn btn-secondary\" data-toggle=\"modal\" data-target=\"#exampleModal\">S'identifier</button>";
-          echo "<a href=\"form_inscription.php?value=$value\"><button type=\"button\" class=\"btn btn-secondary\">S'inscrire</button></a>";
+          echo "<a href=\"form_inscription.php\"><button type=\"button\" class=\"btn btn-secondary\">S'inscrire</button></a>";
         }
       ?>
     </div>

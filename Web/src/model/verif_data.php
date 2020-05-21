@@ -1,59 +1,86 @@
 <?php
+    require_once 'connect_data.php';
+
     function verifMailUser($mail) : bool
     {
-        try
-        {
-            require 'db-config.php';
-            $PDO = new PDO($DB_DSN,$DB_USER,$DB_PASS,$options);      
-        
-            $p = $PDO->prepare('SELECT mail FROM User WHERE mail = ?');
-            $p->bindParam(1,$mail);
-            $p->execute();
+        $PDO = get_PDO();
 
-            $result = $p->fetchAll(PDO::FETCH_ASSOC);
-            if(empty($result))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        catch (PDOException $e)
+        $p = $PDO->prepare('SELECT mail FROM User WHERE mail = ?');
+        $p->bindParam(1,$mail);
+        $p->execute();
+
+        $result = $p->fetchAll(PDO::FETCH_ASSOC);
+        if(empty($result))
         {
-            echo "ERREUR : " . $e->getMessage();            
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 
     function verifPasswordUser($password,$mail,&$result) : bool
     {
-        try
-        {
-            require 'db-config.php';
-            $PDO = new PDO($DB_DSN,$DB_USER,$DB_PASS,$options);      
-        
-            $p = $PDO->prepare('SELECT * FROM User WHERE mail = ?');
-            $p->bindParam(1,$mail);
-            $p->execute();
+        $PDO = get_PDO();
 
-            $result = $p->fetch(PDO::FETCH_ASSOC);
-            $options = [
-                'cost' => 12,
-            ];
-            $v = password_verify($password,$result["password"]);
-            if($v)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        catch (PDOException $e)
+        $p = $PDO->prepare('SELECT * FROM User WHERE mail = ?');
+        $p->bindParam(1,$mail);
+        $p->execute();
+
+        $result = $p->fetch(PDO::FETCH_ASSOC);
+        $options = [
+            'cost' => 12,
+        ];
+        $v = password_verify($password,$result["password"]);
+        if($v)
         {
-            echo "ERREUR : " . $e->getMessage();            
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+       
+    }
+
+    function verifReferenceComposant($reference) : bool
+    {
+        $PDO = get_PDO();
+        
+        $p = $PDO->prepare('SELECT reference FROM Composant WHERE reference = ?');
+        $p->bindParam(1,$reference);
+        $p->execute();
+
+        $result = $p->fetchAll(PDO::FETCH_ASSOC);
+        if(!empty($result))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    function verifReferenceChoose($reference,$user,&$quantity = 0) : bool
+    {
+        $PDO = get_PDO();
+        
+        $p = $PDO->prepare('SELECT * FROM Choose WHERE id_user = ? and id_composant = ?');
+        $p->bindParam(1,$user);
+        $p->bindParam(2,$reference);
+        $p->execute();
+
+        $result = $p->fetch(PDO::FETCH_ASSOC);
+        if(!empty($result))
+        {
+            $quantity = $result['quantity'];
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 ?>

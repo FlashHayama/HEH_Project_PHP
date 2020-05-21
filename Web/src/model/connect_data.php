@@ -1,11 +1,16 @@
 <?php
-    require 'db-config.php';
-    try
+    function get_PDO()
     {
-        $PDO = new PDO($DB_DSN,$DB_USER,$DB_PASS,$options);      
-    }
-    catch (PDOException $e)
-    {
-        echo "Probleme lors de la connection a la base de données.";
+        require 'db-config.php';
+        try
+        {
+            $PDO = new PDO($DB_DSN,$DB_USER,$DB_PASS,$options);    
+            return $PDO;  
+        }
+        catch (PDOException $e)
+        {
+            echo "Erreur : " . $e->getMessage();
+            return null;
+        }
     }
 ?>

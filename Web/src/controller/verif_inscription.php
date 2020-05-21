@@ -2,16 +2,16 @@
     require_once '../model/insert_data.php';
     require_once '../model/verif_data.php';
     $verif;
-    $value;
+    $val;
     $is_correct = true;
     extract($_POST);
     if(!empty($name) && isset($name))
     {
-        $value["na"] = htmlspecialchars($name);
+        $val["na"] = htmlspecialchars($name);
         if(verifString($name))
         {
             $verif["n"] = true;
-            $value["na"] = htmlspecialchars($name);
+            $val["na"] = htmlspecialchars($name);
         }
         else
         {
@@ -21,11 +21,11 @@
     }
     if(!empty($firstName) && isset($firstName))
     {
-        $value["fi"] = htmlspecialchars($firstName);
+        $val["fi"] = htmlspecialchars($firstName);
         if(verifString($firstName))
         {
             $verif["f"] = true;
-            $value["fi"] = htmlspecialchars($firstName);           
+            $val["fi"] = htmlspecialchars($firstName);           
         }
         else
         {
@@ -36,7 +36,7 @@
     }
     if(!empty($mail) && isset($mail))
     {
-        $value["ma"] = htmlspecialchars($mail);
+        $val["ma"] = htmlspecialchars($mail);
         if(filter_var($mail, FILTER_VALIDATE_EMAIL))
         {
             if(!verifMailUser($mail))
@@ -58,11 +58,11 @@
     }
     if(!empty($password) && isset($password))
     {
-        $value["pa"] = $password;
-        if(preg_match("#^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$#",$password))
+        $val["pa"] = $password;
+        if(preg_match("#^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,100}$#",$password))
         {
             $verif["p"] = true;
-            $value["pa"] = $password;
+            $val["pa"] = $password;
         }
         else
         {
@@ -73,11 +73,11 @@
     }
     if(!empty($date) && isset($date))
     {
-        $value["da"] = htmlspecialchars($date);
+        $val["da"] = htmlspecialchars($date);
         if(preg_match("#^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$#",$date))
         {
             $verif["d"] = true;
-            $value["da"] = htmlspecialchars($date);
+            $val["da"] = htmlspecialchars($date);
         }
         else
         {
@@ -87,21 +87,25 @@
         $is_correct = $is_correct && $verif["d"];
     }
     extract($verif);
-    extract($value);
+    extract($val);
     if($is_correct)
     {
-        insertUser($value);
+        insertUser($val);
+        verifPasswordUser($password,$mail,$result);
+        extract($result);
         session_start();
-        $_SESSION["name"] = $na;
-        $_SESSION["firstName"] = $fi;
-        header("Location: ../view/template.php?value=$value");
+        $_SESSION["name"] = $name;
+        $_SESSION["firstName"] = $firstName;
+        $_SESSION["id"] = $id;
+        $_SESSION["admin"] = 0;
+        header("Location: ../view/template.php?value=home");
     }
     else
     {
         
-        header("Location: ../view/form_inscription.php?f=$f&n=$n&m=$m&p=$p&d=$d&fi=$fi&na=$na&ma=$ma&vm=$vm&da=$da&value=$value");
+        header("Location: ../view/form_inscription.php?f=$f&n=$n&m=$m&p=$p&d=$d&fi=$fi&na=$na&ma=$ma&vm=$vm&da=$da");
     }
-
+    
     function verifString(&$string) : bool
     {
         if(strlen($string) <= 15)

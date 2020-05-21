@@ -19,6 +19,7 @@ CREATE TABLE if not exists Composant
     mark char(10) not null ,
     name varchar(50) not null,
     feature varchar(100) not null,
+    picture varchar(100) not null,
     id_type int not null ,
 
     PRIMARY KEY (reference),
