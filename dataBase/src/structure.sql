@@ -45,6 +45,6 @@ CREATE TABLE if not exists Choose
     id_composant varchar(50),
 
     PRIMARY KEY (id),
-    FOREIGN KEY (id_user) REFERENCES User(id),
+    FOREIGN KEY (id_user) REFERENCES User(id) on delete cascade,
     FOREIGN KEY (id_composant) REFERENCES Composant(reference) on delete cascade
 );

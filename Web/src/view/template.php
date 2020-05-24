@@ -1,5 +1,5 @@
 <?php
-    include_once 'heater.php';
+    include_once 'header.php';
     include_once 'form_modal.php';
     include_once 'navbar.php';
     include_once 'content.php';

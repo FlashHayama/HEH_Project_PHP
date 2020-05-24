@@ -1,5 +1,5 @@
 <?php
-    include_once 'heater.php';
+    include_once 'header.php';
     extract($_GET);
 ?>
 
