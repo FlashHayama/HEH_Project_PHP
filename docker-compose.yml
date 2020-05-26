@@ -2,6 +2,8 @@ version: "3.7"
 
 services:
     web:
+        depends_on: 
+            - maria
         container_name: "web"
         build: ./Web
         volumes:
@@ -19,14 +21,15 @@ services:
 
     maria:
         container_name: "maria"
-        build: dataBase
+        build: ./dataBase
         volumes:
             - dataBase:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: "3111997"
         ports:
             - 3306:3306
+        restart: always
 
-volumes: 
-    dataBase:
+volumes:
+    dataBase: 
         driver: local

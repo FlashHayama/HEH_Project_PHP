@@ -1,5 +1,3 @@
-drop database maria;
-
 CREATE DATABASE if not exists maria;
 
 USE maria;
@@ -15,10 +13,10 @@ CREATE TABLE if not exists Type
 CREATE TABLE if not exists Composant
 (
     reference varchar(50) not null ,
-    power int(3),
-    mark char(10) not null ,
-    name varchar(50) not null,
-    feature varchar(100) not null,
+    power int(3) not null,
+    mark varchar(20) not null ,
+    name varchar(100) not null,
+    feature varchar(200) not null,
     picture varchar(100) not null,
     id_type int not null ,
 
@@ -34,6 +32,7 @@ CREATE TABLE if not exists User
     age char(10) not null ,
     mail char(100) not null ,
     password char(255) not null ,
+    admin boolean default 0,
 
     PRIMARY KEY (id)
 );
@@ -41,8 +40,9 @@ CREATE TABLE if not exists User
 CREATE TABLE if not exists Choose
 (
     id int auto_increment,
-    id_user int,
-    id_composant varchar(50),
+    id_user int NOT NULL,
+    id_composant varchar(50) NOT NULL,
+    quantity int default 1,
 
     PRIMARY KEY (id),
     FOREIGN KEY (id_user) REFERENCES User(id) on delete cascade,
